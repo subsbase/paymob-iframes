@@ -1,119 +1,103 @@
-<html>
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.min.css" />
-</head>
-
-<body>
-  <div class="container-fluid">
-    <form role="form" id="paymob_checkout">
-      <div class="form-row">
-        <div class="col-12">
-          <div class="form-group">
-            <label for="number">CARD NUMBER</label>
-            <div class="input-group">
-              <input id="formattedNumber" autocomplete="cc-number" class="form-control text-center" type="text"
-                placeholder="xxxx xxxx xxxx xxxx" maxlength="19" />
-              <div class="input-group-append">
-                <span id="CardLogo" class="input-group-text card-logo card-logo-visa"></span>
-              </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<div class="container-fluid">
+  <form role="form" id="paymob_checkout">
+    <div class="form-row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="number">CARD NUMBER</label>
+          <div class="input-group">
+            <input id="formattedNumber" autocomplete="cc-number" class="form-control text-center" type="text"
+              placeholder="xxxx xxxx xxxx xxxx" maxlength="19" />
+            <div class="input-group-append">
+              <span id="CardLogo" class="input-group-text card-logo card-logo-visa"></span>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="form-row">
-        <div class="col-8">
-          <label for="expmonth">EXPIRATION DATE</label>
-        </div>
-        <div class="col-4">
-          <label for="cvv">CVV</label>
+    <div class="form-row">
+      <div class="col-8">
+        <label for="expmonth">EXPIRATION DATE</label>
+      </div>
+      <div class="col-4">
+        <label for="cvv">CVV</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-3">
+        <div class="form-group">
+          <input id="expmonth" autocomplete="cc-exp-month" type="text" class="form-control text-center" placeholder="MM"
+            paymob_field="card_expiry_mm" list="cardExMM" />
+          <datalist id="cardExMM">
+            <option value=01>01</option>
+            <option value=02>02</option>
+            <option value=03>03</option>
+            <option value=04>04</option>
+            <option value=05>05</option>
+            <option value=06>06</option>
+            <option value=07>07</option>
+            <option value=08>08</option>
+            <option value=09>09</option>
+            <option value=10>10</option>
+            <option value=11>11</option>
+            <option value=12>12</option>
+          </datalist>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="col-3">
-          <div class="form-group">
-            <input id="expmonth" autocomplete="cc-exp-month" type="text" class="form-control text-center"
-              placeholder="MM" paymob_field="card_expiry_mm" list="cardExMM" />
-            <datalist id="cardExMM">
-              <option value=01>01</option>
-              <option value=02>02</option>
-              <option value=03>03</option>
-              <option value=04>04</option>
-              <option value=05>05</option>
-              <option value=06>06</option>
-              <option value=07>07</option>
-              <option value=08>08</option>
-              <option value=09>09</option>
-              <option value=10>10</option>
-              <option value=11>11</option>
-              <option value=12>12</option>
-            </datalist>
-          </div>
+      <div class="col-5">
+        <div class="form-group">
+          <input id="expyear" autocomplete="cc-exp-year" type="text" class="form-control text-center" placeholder="YYYY"
+            paymob_field="card_expiry_yy" list="cardExYY" />
+          <datalist id="cardExYY">
+            <option value=21>2021</option>
+            <option value=22>2022</option>
+            <option value=23>2023</option>
+            <option value=24>2024</option>
+            <option value=25>2025</option>
+            <option value=26>2026</option>
+            <option value=27>2027</option>
+            <option value=28>2028</option>
+            <option value=29>2029</option>
+            <option value=30>2030</option>
+          </datalist>
         </div>
+      </div>
 
-        <div class="col-5">
-          <div class="form-group">
-            <input id="expyear" autocomplete="cc-exp-year" type="text" class="form-control text-center"
-              placeholder="YYYY" paymob_field="card_expiry_yy" list="cardExYY" />
-            <datalist id="cardExYY">
-              <option value=21>2021</option>
-              <option value=22>2022</option>
-              <option value=23>2023</option>
-              <option value=24>2024</option>
-              <option value=25>2025</option>
-              <option value=26>2026</option>
-              <option value=27>2027</option>
-              <option value=28>2028</option>
-              <option value=29>2029</option>
-              <option value=30>2030</option>
-            </datalist>
-          </div>
-        </div>
-
-        <div class="col-4">
-          <div class="form-group">
-            <div class="input-group">
-              <input id="cvv" autocomplete="cc-csc" type="text" class="form-control text-center" placeholder="CVV"
+      <div class="col-4">
+        <div class="form-group">
+          <div class="input-group">
+            <input id="cvv" autocomplete="cc-csc" type="text" class="form-control text-center" placeholder="CVV"
               paymob_field="card_cvn" />
-              <div class="input-group-append">
-                <span id="cvvHelper" class="input-group-text">?</span>
-              </div>
+            <div class="input-group-append">
+              <span id="cvvHelper" class="input-group-text">?</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="form-row">
-        <div class="col-12">
-          <div class="form-group">
-            <label for="name">CARD HOLDER NAME</label>
-            <input type="text" id="name" autocomplete="cc-name" name="name" class="form-control"
-              placeholder="Name on card" required paymob_field="card_holdername" />
-          </div>
+    <div class="form-row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="name">CARD HOLDER NAME</label>
+          <input type="text" id="name" autocomplete="cc-name" name="name" class="form-control"
+            placeholder="Name on card" required paymob_field="card_holdername" />
         </div>
       </div>
+    </div>
 
-      <input type="hidden" value="CARD" paymob_field="subtype">
-      <input type="checkbox" value="tokenize" name="save card" checked="true" hidden="true">
-      <input type="hidden" name="number" id="number" paymob_field="card_number" />
+    <input type="hidden" value="CARD" paymob_field="subtype">
+    <input type="checkbox" value="tokenize" name="save card" checked="true" hidden="true">
+    <input type="hidden" name="number" id="number" paymob_field="card_number" />
 
-      <input type="submit" class="btn btn-success float-right" value="Pay"/>
-    </form>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-    crossorigin="anonymous"></script>
-  <script src="script.min.js"></script>
-</body>
-
-</html>
+    <input type="submit" class="btn btn-success float-right" value="Pay" />
+  </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
