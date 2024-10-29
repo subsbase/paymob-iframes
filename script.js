@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var cardLogo = document.getElementById('CardLogo')
     var number = document.getElementById('number')
-	  var cleanNumber  = document.getElementById('clean-number')
+    var cleanNumber  = document.getElementById('clean-number')
     var expmonth = document.getElementById('expmonth')
     var expyear = document.getElementById('expyear')
     var cvv = document.getElementById('cvv')
@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (formattedValue.length >= 19) {
         expiry.focus()
     }
-	
-	cleanNumber.value = cleanedValue
+    cleanNumber.value = cleanedValue
     })
 
     cvv.addEventListener('input', function (event) {
